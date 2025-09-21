@@ -1,1 +1,1 @@
-# Phishing_Detector
+# Web_Phishing_Detector
