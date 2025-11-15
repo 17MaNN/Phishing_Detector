@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-MODEL_PATH = os.path.join("model", "phishing_rf_model.pkl")
+MODEL_PATH = os.path.join("model", "C:\PhishingDetector\phishing_rf_model.pkl")
 
 # Load model
 try:
