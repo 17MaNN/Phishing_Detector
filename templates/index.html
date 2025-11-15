@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Phishing Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="box">
+        <h2>Phishing URL Detector</h2>
+
+        <form action="/predict" method="POST">
+            <input type="text" name="url" placeholder="Enter URL here (e.g. https://example.com)" required>
+            <button type="submit">Check</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if prediction %}
+            <p class="result">Result: <strong>{{ prediction }}</strong></p>
+        {% endif %}
+
+        {% if meta %}
+            <h3>Extracted features (sample)</h3>
+            <div class="features">
+                <pre>{{ meta.features | tojson(indent=2) }}</pre>
+                <p><small>Note: some features (WHOIS, PageRank, traffic) are approximated or require external APIs</small></p>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
